@@ -48,8 +48,7 @@ Channel-Mix (RWKV_CMix_x070)
 
 严格按照以下步骤进行：
 - 首先从用户提供的项目运行方法入口中，逐步追溯当前代码使用的骨干网络模块，分析现有骨干网络的工作原理。
-- 然后阅读skill下自带的`references/rwkv7_channel_mix.py`和`references/rwkv7_time_mix.py`中的RWKV-7模块实现，结合这些信息，规划将骨干网络替换为RWKV-7的策略。
-- 规划替换策略时，首先识别当前项目中骨干网络中建模时序依赖关系的模块和建模特征维度关系的模块分别是什么。例如对于Transformer架构，建模时序依赖关系的模块是Self-Attention，而建模特征维度关系的模块通常是FFN；对于Mamba架构，Mamba模块同时建模时序依赖关系和特征维度关系。随后根据这些识别结果，规划替换策略。首选替换策略应当尽可能只使用RWKV-7的Time-Mix模块替换当前项目中建模时序依赖关系的模块，不替换建模特征维度关系的模块（除非用户明确需要）。例如对于Transformer，首选替换策略应当是只使用RWKV-7的Time-Mix模块替换Transformer中的Self-Attention模块，不替换FFN模块；对于Mamba架构，由于Mamba模块同时建模时序依赖关系和特征维度关系，因此无法只替换时序建模模块，因此推荐同时使用RWKV-7的Time-Mix和Channel-Mix模块替换Mamba模块。其他架构则具体分析。
+- 然后阅读skill下自带的`references/rwkv7_channel_mix.py`和`references/rwkv7_time_mix.py`中的RWKV-7模块实现，结合这些信息，规划将骨干网络替换为RWKV-7的策略。规划替换策略时，首先识别当前项目中骨干网络中建模时序依赖关系的模块和建模特征维度关系的模块分别是什么。例如对于Transformer架构，建模时序依赖关系的模块是Self-Attention，而建模特征维度关系的模块通常是FFN；对于Mamba架构，Mamba模块同时建模时序依赖关系和特征维度关系。除非用户明确指定，否则默认首选替换策略尽可能只使用RWKV-7的Time-Mix模块替换当前项目中建模时序依赖关系的模块，不替换建模特征维度关系的模块。例如对于Transformer，首选替换策略应当是只使用RWKV-7的Time-Mix模块替换Transformer中的Self-Attention模块，不替换FFN模块；对于Mamba架构，由于Mamba模块同时建模时序依赖关系和特征维度关系，因此无法只替换时序建模模块，因此推荐同时使用RWKV-7的Time-Mix和Channel-Mix模块替换Mamba模块。其他架构则具体分析。
 
 ## 4.3 输出替换方案报告
 
