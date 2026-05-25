@@ -1,0 +1,4 @@
+interface:
+  display_name: "优化 RWKV-7"
+  short_description: "用等效 fused CUDA TimeMix kernel 加速 RWKV-7。"
+  default_prompt: "在保持模型和 loss 等效的前提下，优化这个项目的 RWKV-7 实现。"

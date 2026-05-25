@@ -1,0 +1,4 @@
+interface:
+  display_name: "Optimize RWKV-7"
+  short_description: "Speed up RWKV-7 with equivalent fused CUDA TimeMix kernels."
+  default_prompt: "Optimize this project's RWKV-7 implementation while preserving model and loss equivalence."
