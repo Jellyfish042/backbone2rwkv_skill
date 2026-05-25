@@ -18,7 +18,7 @@ Run from the target project root.
 ### macOS, Linux, or Git Bash
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/Jellyfish042/backbone2rwkv_skill/main/install.sh | BACKBONE2RWKV_SKILL=backbone2rwkv BACKBONE2RWKV_LANG=en sh
+curl -fsSL https://raw.githubusercontent.com/Jellyfish042/backbone2rwkv_skill/main/install.sh | sh
 ```
 
 ### Windows PowerShell

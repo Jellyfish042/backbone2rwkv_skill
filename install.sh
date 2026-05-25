@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 set -eu
 
-LANGUAGE="${BACKBONE2RWKV_LANG:-zh}"
+LANGUAGE="${BACKBONE2RWKV_LANG:-en}"
 REQUESTED_SKILL="${BACKBONE2RWKV_SKILL:-backbone2rwkv}"
 REF="${BACKBONE2RWKV_REF:-main}"
 PROJECT_ROOT="${1:-$(pwd)}"
